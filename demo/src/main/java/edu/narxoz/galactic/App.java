@@ -5,8 +5,8 @@ import edu.narxoz.galactic.bodies.SpaceStation;
 import edu.narxoz.galactic.cargo.Cargo;
 import edu.narxoz.galactic.dispatcher.Dispatcher;
 import edu.narxoz.galactic.dispatcher.Result;
-import edu.narxoz.galactic.drones.HeavyDrone;
-import edu.narxoz.galactic.drones.LightDrone;
+import edu.narxoz.galactic.drones.Drone;
+import edu.narxoz.galactic.factory.DroneFactory;
 import edu.narxoz.galactic.task.DeliveryTask;
 
 public class App {
@@ -17,8 +17,8 @@ public class App {
 
         Cargo cargo = new Cargo(50, "Metal");
 
-        LightDrone light = new LightDrone("LD-1", 20);
-        HeavyDrone heavy = new HeavyDrone("HD-1", 100);
+        Drone light = DroneFactory.createDrone("LIGHT", "LD-1", 20);
+        Drone heavy = DroneFactory.createDrone("HEAVY", "HD-1", 100);
 
         DeliveryTask task = new DeliveryTask(earth, iss, cargo);
         Dispatcher dispatcher = new Dispatcher();
